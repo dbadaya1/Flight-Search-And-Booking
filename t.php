@@ -46,7 +46,7 @@ for($i = 0;$i<50000;$i++) {
   $price = 75*$minutes_to_add;
 $free_meals = mt_rand(0,1);
 $refundable = mt_rand(0,1);
-$int= mt_rand(strtotime('2016-10-05 11:44:00'),strtotime('2016-12-05 11:44:00'));
+$int= mt_rand(strtotime('2017-02-20 11:44:00'),strtotime('2017-12-05 11:44:00'));
 
 $d_date_time = date("Y-m-d H:i:00",$int);
 $a_date_time = date("Y-m-d H:i:00",$int + 60*$minutes_to_add);
