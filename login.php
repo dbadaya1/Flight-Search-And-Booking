@@ -86,7 +86,7 @@ else { ?>
         Log-in to your account
       </div>
     </h2>
-    <form action="/login.php" method="post" class="ui form large">
+    <form action="<?=HOMEPAGE_URL;?>/login" method="post" class="ui form large">
       <div class="ui stacked segment">
         <div class="field">
           <div class="ui left icon input">
@@ -100,7 +100,7 @@ else { ?>
             <input type="password" name="password" placeholder="Password">
           </div>
         </div>
-        <input type="hidden" name="redirect" value="<?php echo HOMEPAGE_URL."/login.php?wrong=1"; ?>">
+        <input type="hidden" name="redirect" value="<?php echo HOMEPAGE_URL."/login?wrong=1"; ?>">
         <div class="ui fluid large teal submit button">Sign In</div>
       </div>
 
@@ -129,7 +129,7 @@ else { ?>
     <h2 class="ui teal header">
         Sign Up for your account
     </h2>
-      <form action="/login.php" method="POST" class="ui form">
+      <form action="<?=HOMEPAGE_URL;?>/login" method="POST" class="ui form">
             <div class="ui stacked segment">
 
         <div class="three fields">

@@ -62,10 +62,10 @@ stylesheetInclude("style.css");
             <div class="ui simple dropdown item">
               Hi <?php echo $user_name; ?> <i class="dropdown icon"></i>
               <div class="menu">
-                <a class="item" href="/mybookings.php">My Bookings</a>
-                <a class="item" href="/profile.php">My Profile</a>
+                <a class="item" href="<?=HOMEPAGE_URL;?>/mybookings.php">My Bookings</a>
+                <a class="item" href="<?=HOMEPAGE_URL;?>/profile.php">My Profile</a>
 
-                <a class="item" href="/logout.php">LogOut</a>
+                <a class="item" href="<?=HOMEPAGE_URL;?>/logout.php">LogOut</a>
 
               </div>
             </div>
@@ -76,7 +76,7 @@ stylesheetInclude("style.css");
               }
               ?>
 
-              <form action="/login.php" method="post" class="ui form">
+              <form action="<?=HOMEPAGE_URL;?>/login.php" method="post" class="ui form">
                 <div class="fields">
 
                   <div class="field">
@@ -95,7 +95,7 @@ stylesheetInclude("style.css");
       <div class="ui error message"></div>
 
               </form>
-              <div class="ui button"><a href="/login.php">Sign Up</a></div>
+              <div class="ui button"><a href="<?=HOMEPAGE_URL;?>/login.php">Sign Up</a></div>
 
 
 

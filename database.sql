@@ -1,3 +1,15 @@
+SET FOREIGN_KEY_CHECKS = 0; 
+SET @tables = NULL;
+SELECT GROUP_CONCAT(table_schema, '.', table_name) INTO @tables
+  FROM information_schema.tables 
+  WHERE table_schema = 'airline'; -- specify DB name here.
+
+SET @tables = CONCAT('DROP TABLE ', @tables);
+PREPARE stmt FROM @tables;
+EXECUTE stmt;
+DEALLOCATE PREPARE stmt;
+SET FOREIGN_KEY_CHECKS = 1; 
+
 create table city( id int primary key AUTO_INCREMENT,
 name varchar(25) not null,
 state varchar(25) not null
@@ -74,7 +86,7 @@ CONSTRAINT _FK_flight_city_acity Foreign key(a_city)
 
 Create table Booking( 
 	id int primary key AUTO_INCREMENT,
-	booking_time datetime not null,
+	booking_time datetime DEFAULT CURRENT_TIMESTAMP,
 	flight_id int not null,
 	user_id int not null,
 	noOfTravellers int not null,
@@ -136,38 +148,6 @@ insert into city (name,state) values("Bangalore","Karnataka");
 insert into travel_class (name) values('Economy');
 insert into travel_class (name) values('Business');
 
-
-insert into flights values(1,901,1,1,"2016-04-09 15:45:21",3,"2016-04-09 18:05:00",3500.00);
-insert into flights values(2,504,2,3,"2016-04-15 22:45:15",1,"2016-04-15 23:05:00",4500.00);
-insert into flights values(3,101,3,2,"2016-04-20 10:25:21",4,"2016-04-20 13:40:00",7570.00);
-insert into flights values(4,999,3,5,"2016-04-25 19:45:21",3,"2016-04-25 21:35:00",4700.00);
-insert into flights values(5,456,3,5,"2016-04-27 13:45:00",3,"2016-04-27 17:35:00",6700.00);
-insert into flights values(6,123,2,1,"2016-04-22 13:45:00",3,"2016-04-22 17:35:00",6700.00);
-
-
-
-
-	insert into users (password_hash,fname,mname,lname,sex,address,email) VALUES(
-		'f6a63dfae760d39bd467a28d053938cb',
-		'Nishant',
-		'',
-		'Banka',
-		'M',
-		'48,Adarsh Nagar,Guhawat',
-		'banka@gmail.com'
-		);
-
-		
-
-
-
-
-
-LOAD DATA INFILE 'd:/city.csv' 
-INTO TABLE flights 
-FIELDS TERMINATED BY ',' 
-ENCLOSED BY '"'
-LINES TERMINATED BY '\n';
 
 
 
@@ -391,4 +371,3 @@ insert into airline (name,logo,short_name) values("Go Air","/9j/4AAQSkZJRgABAQAA
 insert into airline (name,logo,short_name) values("Jet Airways","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","JA");
 
 
-SELECT * FROM flights WHERE TRY_CONVERT(DATE, d_date_time, 105) = '04/09/2016'

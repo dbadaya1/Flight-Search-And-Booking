@@ -1,6 +1,6 @@
 <?php
 require_once("config.php");
-/*
+
 
 $stmt = $pdo->prepare('SELECT id FROM airline');
 $stmt->execute();
@@ -24,9 +24,6 @@ $stmt->execute();
 }
 
 
-die();
-*/
-
 $stmt = $pdo->prepare('SELECT id FROM city');
 $stmt->execute();
 $cities = $stmt->fetchAll();
@@ -49,12 +46,10 @@ for($i = 0;$i<50000;$i++) {
   $price = 75*$minutes_to_add;
 $free_meals = mt_rand(0,1);
 $refundable = mt_rand(0,1);
-$int= mt_rand(1459472400,1461978000);
-
+$int= mt_rand(strtotime('2016-10-05 11:44:00'),strtotime('2016-12-05 11:44:00'));
 
 $d_date_time = date("Y-m-d H:i:00",$int);
 $a_date_time = date("Y-m-d H:i:00",$int + 60*$minutes_to_add);
-
 
 $sql[]  = "($fnumber,$airplane,$dcity,'$d_date_time',$acity,'$a_date_time',$price,$free_meals,$refundable)";
 /*
@@ -68,9 +63,7 @@ $stmt->execute();
 
 $sql = "INSERT INTO 
 flight (fnumber,airplane_id,d_city,d_date_time,a_city,a_date_time,price,free_meals,refundable) VALUES".implode(',',$sql);
-//echo $sql;
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
-
 ?>
 

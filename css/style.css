@@ -1,0 +1,49 @@
+
+
+ body {
+    background-color: #DADADA;
+  }
+    .ui.menu .item img.logo {
+      margin-right: 1.5em;
+    }
+    .main.container {
+      margin-top: 7em;
+    }
+
+    .ui.footer.segment {
+      margin: 5em 0em 0em;
+      padding: 5em 0em;
+    }
+    th.sorted.ascending:after {
+      content: "  \2191";
+    }
+
+    th.sorted.descending:after {
+      content: " \2193";
+    }
+
+    .ui.popup.popup-signin {
+      //display: none;
+      background-color: #fffacd;
+      width: 700px;
+      // position: fixed;
+      // left: 24%;
+      // top: 100px;
+    }
+
+
+    .inactive {
+      display: none;
+    }
+
+
+    .dropdown .default.text {
+      color:red;
+    }
+
+
+#main-content{
+  margin-top:70px;
+
+}
+

@@ -47,7 +47,6 @@ if (!empty($_POST['originCity']) && !empty($_POST['destinationCity']) && !empty(
 
 
 
-
 $originCityName = getCityName($originCity);
 $destinationCityName = getCityName($destinationCity);
 

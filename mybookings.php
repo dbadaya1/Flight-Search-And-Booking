@@ -90,7 +90,7 @@ $destinationCityName = getCityName($flight['a_city']);
 								echo "<span class='ui red label'>CANCELLED</span>";
 							?>
 						<td>
-							<a class="ui button blue flight_details" href="/booked-flight-details?booking_id=<?php echo $booking['id']; ?>">Flight Details</a>
+							<a class="ui button blue flight_details" href="<?=HOMEPAGE_URL;?>/booked-flight-details?booking_id=<?php echo $booking['id']; ?>">Flight Details</a>
 						
 						</td>
 					</tr>
