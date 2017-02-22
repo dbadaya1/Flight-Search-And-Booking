@@ -1,4 +1,6 @@
 <?php
+
+return;
 require_once("config.php");
 
 
